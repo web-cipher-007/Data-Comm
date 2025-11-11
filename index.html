@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Communication Question Bank</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #f0f4f8;
+            color: #1e293b;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .question-card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .question-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>');
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 1.25em;
+        }
+    </style>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="p-4 sm:p-8">
+
+    <div class="container">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-slate-800 mb-2">Data Communication (CT 602)</h1>
+            <p class="text-lg text-slate-600">Question Bank from Past Papers</p>
+        </header>
+
+        <div class="filters flex flex-col sm:flex-row gap-4 mb-8">
+            <div class="flex-1">
+                <label for="chapter-select" class="block text-sm font-medium text-slate-700 mb-1">Chapter</label>
+                <select id="chapter-select" class="w-full bg-white border border-slate-300 rounded-md shadow-sm py-2 px-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                    <!-- Options will be populated by JS -->
+                </select>
+            </div>
+            <div class="flex-1">
+                <label for="year-select" class="block text-sm font-medium text-slate-700 mb-1">Year</label>
+                <select id="year-select" class="w-full bg-white border border-slate-300 rounded-md shadow-sm py-2 px-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                    <!-- Options will be populated by JS -->
+                </select>
+            </div>
+        </div>
+
+        <main id="question-container">
+            <!-- Questions will be rendered here by JS -->
+        </main>
+    </div>
+
+    <script>
+        const allQuestions = {
+            chapter1: {
+                title: "Chapter 1: Introduction to Data Communication",
+                questions: [
+                    { question: "a) Prepare a generic block diagram of a communication system that represents communication between a mobile and a landline telephone user.<br>b) Explain the performance parameters of communication systems.", year: "2082 Baishakh", type: "Back", marks: "[5]+[3]" },
+                    { question: "a) Prepare a generic block diagram of a digital communication system representing communications between an air traffic controller and an in flight pilot in a cockpit.<br>b) Explain the basic causes of transmission impairments in communication system.", year: "2081 Bhadra", type: "Regular", marks: "[5]+[3]" },
+                    { question: "Explain the digital data communication system working in full duplex mode using a block diagram. Define the transmission performance parameters in a data communication system.", year: "2081 Baishakh", type: "Back", marks: "[4+4]" },
+                    { question: "Define transmission performance parameters in data communication system. Explain digital communication system with appropriate generic block diagram.", year: "2080 Bhadra", type: "Regular", marks: "[4+4]" },
+                    { question: "Define data and signal. Elaborate the advantages of digital communication system as compared to analog communications system. Explain the basic causes of transmission impairments in communication system.", year: "2080 Baishakh", type: "Back", marks: "[2+2+4]" },
+                    { question: "Define Data and Signal with examples. Sketch a generic block diagram of digital data communication system for full duplex mode.", year: "2079 Bhadra", type: "Regular", marks: "[2+6]" },
+                    { question: "List and describe all data communication parameters that describe the performance of the system.", year: "2078 Bhadra", type: "Regular", marks: "[8]" },
+                    { question: "a) Differentiate data and signal with two examples of each.<br>b) Explain the procedure of converting an analog signal to digital. Also, briefly explain each steps involved.", year: "2078 Kartik", type: "Back", marks: "[5]+[5]" },
+                    { question: "Draw a generic block diagram of a digital communication system used in mobile telephony and explain each block. Compare analog and digital communication system with examples.", year: "2076 Chaitra", type: "Regular", marks: "[6+2]" },
+                    { question: "Enlist the advantages and disadvantages of digital communication system over analog communication system. Discuss the transmission impairments of data communication system with suitable diagrams and suggest the methods in overcoming attenuation.", year: "2076 Ashwin", type: "Back", marks: "[3+5]" },
+                    { question: "Sketch a generic block diagram of digital data communication system for full duplex mode.", year: "2075 Chaitra", type: "Regular / Back", marks: "[8]" },
+                    { question: "Describe the transmission impairments of data communication system with suitable example.", year: "2075 Ashwin", type: "Back", marks: "[6]" },
+                    { question: "Draw a generic block diagram of digital communication system for full duplex mode and briefly explain the function of each block.", year: "2074 Chaitra", type: "Regular", marks: "[8]" },
+                    { question: "Define transmission Impairment. Compare analog communication system with digital communication system with appropriate block diagram for half-duplex mode.", year: "2074 Ashwin", type: "Back", marks: "[4+6]" },
+                    { question: "Draw generic block diagram of digital communication duplex system and explain each block. Write down the advantages and disadvantages of digital communication over analog communication system.", year: "2073 Shrawan", type: "Back", marks: "[5+3]" },
+                    { question: "Describe the Transmission Impairments of Data Communication system with suitable examples.", year: "2072 Chaitra", type: "Regular", marks: "[6]" },
+                    { question: "Define noise. Briefly discuss the types of noise. Define thermal noise power density; calculate the thermal noise power density in Watts/Hz at a temperature of 17°C, the Boltzmann's constant is 1.38×10-23 J/K. What is delay distortion and how can it be corrected? Why is digital transmission preferred over analog transmission?", year: "2071 Chaitra", type: "Regular", marks: "[4+2+2]" },
+                    { question: "Explain digital communication system with general block diagram. Explain the advantages of digital communication system over analog communication system.", year: "2071 Shawan", type: "Back", marks: "[6+2]" }
+                ]
+            },
+            chapter2: {
+                title: "Chapter 2: Signals and Systems",
+                questions: [
+                    { question: "Define Power and energy signal. Evaluate the power or energy of the following signals: a) x(t) = e<sup>-2|t|</sup>, b) x(t) = e<sup>j0.1πt</sup>", year: "2082 Baishakh", type: "Back", marks: "[2+3+3]" },
+                    { question: "Define a linear system and a time invariant system. Evaluate the odd and even component of a signal defined as: x(t) = e<sup>-2t</sup>u(t).", year: "2081 Bhadra", type: "Regular", marks: "[2+6]" },
+                    { question: "Define energy and power signal with examples. Check whether the following system is linear, causal and time invariant or not. y(t) = logx(t)", year: "2081 Baishakh", type: "Back", marks: "[4+6]" },
+                    { question: "Define a causal system and a stable system with example. Evaluate power and energy of a signal given as x(t) = e<sup>-2|t|</sup>. Justify whether it is energy signal or power signal.", year: "2080 Bhadra", type: "Regular", marks: "[4+6]" },
+                    { question: "a) Determine whether or not the following CT signal is periodic. If the signal is periodic, determine its fundamental period. x(t) = 3cos(4t+π/3).<br>b) Test the linearity of the systems, y(t) = x²(t) and y(t) = 3x(t) + 5<br>c) Test the systems static or dynamic, y(t) = 2x(t) and y(t) = 2x(t) - 3x(t-3)", year: "2080 Baishakh", type: "Back", marks: "[2]+[4]+[4]" },
+                    { question: "Define a causal system and a stable system. Check whether a system y(t) = x(t) + x(t-1) is (i) linear (ii) time-invariant (iii) causal (iv) memoryless system", year: "2079 Bhadra", type: "Regular", marks: "[2+6]" },
+                    { question: "Differentiate between energy and power signals with examples. Determine if the following system is stable LTI. Y(t) = x(t²)", year: "2078 Bhadra", type: "Regular", marks: "[5+5]" },
+                    { question: "Define periodic and non-periodic signals with examples.<br>a) Test the stability of the system h(t) = e<sup>t</sup>.u(t)<br>b) Test the given function y(t) = t.x(t) for causality, non causality and anti causality.", year: "2078 Kartik", type: "Back", marks: "[2+4+4]" },
+                    { question: "Explain the properties of causal, non-causal and anticausal systems with example.", year: "2076 Chaitra", type: "Regular", marks: "[10]" },
+                    { question: "Distinguish between power and energy signals with examples.", year: "2075 Chaitra", type: "Regular / Back", marks: "[8]" },
+                    { question: "Define periodic and non-periodic signals with examples. Determine whether the following signals are periodic or not. a) X(t) = sin15πt b) x(t) = sin√2πt", year: "2075 Ashwin", type: "Back", marks: "[2+3+3]" },
+                    { question: "Derive an expression to find even and odd part of signal x(t). Find even and odd part of a signal x(t) = 0.5(t+1) for -1 ≤ t ≤ 1.", year: "2074 Chaitra", type: "Regular", marks: "[4+4]" },
+                    { question: "Explain the linearity and time invariance property of a system with example. Check whether the following system is linear, time invariant and causal or not. y(t) = x(t-2)+x(2-t)", year: "2074 Ashwin", type: "Back", marks: "[5+3]" },
+                    { question: "Check linearity, causality, stability and time invariance characteristics of system y(t) = 2x(t+1)", year: "2073 Shrawan", type: "Back", marks: "[6]" },
+                    { question: "Define stable and unstable systems. Test the stability of the LTI systems whose impulse responses are given as (i) h(t) = e<sup>t</sup>u(t) (ii) h(t) = e<sup>-t</sup>u(t)", year: "2072 Chaitra", type: "Regular", marks: "[2+3+3]" },
+                    { question: "Distinguish between energy and power signal with an example. Justify whether a signal x(t) = e<sup>-a|t|</sup>.u(t)(a>0) is energy or power signal.", year: "2072 Chaitra", type: "Regular", marks: "[4+4]" },
+                    { question: "Differentiate between causal and anticausal signals with examples. Determine the power and energy for a continuous time signal of x(t) = e<sup>-t</sup>u(t)(t≥0)", year: "2072 Kartik", type: "Back", marks: "[6+4]" },
+                    { question: "Define periodic and non-periodic signals. Determine if the following systems are linear, time-invariant, stable and memoryless. a) y(t) = [1-e<sup>-t</sup>][U(t)] where U(t) is the continuous-time unit step function b) y[k]=sin(x[k-4])", year: "2072 Kartik", type: "Back", marks: "[2+3+3]" },
+                    { question: "Define energy and power signal. Check the signal x(t) = u(t) and x (t) = δ(t) is Energy or Power type.", year: "2071 Chaitra", type: "Regular", marks: "[1+4]" },
+                    { question: "Define Linear, Stable, Time Invariant and Causal system with suitable examples.", year: "2071 Chaitra", type: "Regular", marks: "[4]" }
+                ]
+            },
+            chapter3: {
+                title: "Chapter 3: LTI Systems, Convolution & Fourier Analysis",
+                questions: [
+                    { question: "a) Mention the characteristics of a Linear Time-Invariant (LTI) system.<br>b) How do you test the stability of a System? Test the Stability of following systems. (i) y(t) = x²(t), (ii) y[t] = 50sin(x(t)) +10.", year: "2082 Baishakh", type: "Back", marks: "[2]+[2+2+2]" },
+                    { question: "Compare and contrast Fourier series and Fourier transform. Mention the conditions and properties of Fourier transformation.", year: "2081 Bhadra", type: "Regular", marks: "[2+2+4]" },
+                    { question: "State the properties of Fourier Transform. Convolve the following signals graphically. (Image of two signals provided in paper)", year: "2081 Baishakh", type: "Back", marks: "[2+6]" },
+                    { question: "Define LTI system. Convolve the following signals graphically. (Image of two signals provided in paper)", year: "2080 Bhadra", type: "Regular", marks: "[2+6]" },
+                    { question: "a) Find the output response of an LTI system when input x(t) = e<sup>t</sup>u(t) and impulse response h(t) = e<sup>-2t</sup>u(t).<br>b) Find magnitude and phase spectrum of x(t) = 4 + 2cos(2π/3 t) + 4sin(5π/3 t).<br>c) Discuss any four properties of Fourier Transform.", year: "2080 Baishakh", type: "Back", marks: "[4]+[4]+[2]" },
+                    { question: "State properties of continuous time Fourier Transform.", year: "2079 Bhadra", type: "Regular", marks: "[4]" },
+                    { question: "Find convolution between two signals x1(t) = u(t) - u(t-3) and x2(t) = u(t+4) - u(t).", year: "2079 Bhadra", type: "Regular", marks: "[4]" },
+                    { question: "Explain how we plot line spectrums of a continious time signal and illustrate an example.", year: "2078 Bhadra", type: "Regular", marks: "[8]" },
+                    { question: "Explain why we need Fourier Transform. Plot the line spectrums of X(t) = 12 + 6sin(140πt + 30°) - 9cos(80πt – 70°).", year: "2076 Chaitra", type: "Regular", marks: "[5+5]" },
+                    { question: "What are properties Fourier transform? Plot the magnitude and phase spectra of X(t) = 5 + sin(12t + 20°) - cos(16t - 60°) + cos(20t + 40°).", year: "2076 Ashwin", type: "Back", marks: "[4+4]" },
+                    { question: "Sketch the output of LTI system having impulse response h(t) = e<sup>-at</sup>u(t) (a>0) and h(t) = e<sup>at</sup>u(-t) (a>0).", year: "2076 Ashwin", type: "Back", marks: "[10]" },
+                    { question: "State the condition for the stability of LTI system. Test the stability of the system whose impulse response is h(t)=te<sup>-3t</sup>u(t)", year: "2075 Chaitra", type: "Regular / Back", marks: "[8]" },
+                    { question: "What are Recursive and Nonrecursive system? Test the stability of the CTI system whose impulse response is given as: h(t) = e<sup>-t</sup>Sin(t)u(t)", year: "2075 Ashwin", type: "Back", marks: "[3+5]" },
+                    { question: "State the properties of continuous time Fourier series.", year: "2074 Chaitra", type: "Regular", marks: "[6]" },
+                    { question: "Define LTI system. Determine the range of values of “a” and “b” for the stability of LTI system with impulse response. h(t) = e<sup>at</sup>u(t) + e<sup>-bt</sup>u(t)", year: "2074 Chaitra", type: "Regular", marks: "[3+5]" },
+                    { question: "Find the output of LTI system having impulse response h(t) = e<sup>-2t</sup>; t > 0 to the input x(t) which is a pulse from t=0 to t=1.", year: "2074 Ashwin", type: "Back", marks: "[8]" },
+                    { question: "Define LTI system. Compute convolution between two signals x(t) = e<sup>-at</sup>.u(t) (a > 0) and h(t) = e<sup>at</sup>.u(-t)(a > 0) and plot the resulting signal.", year: "2073 Shrawan", type: "Back", marks: "[3+6+1]" },
+                    { question: "Define LTI system and impulse response. For the given signal x(t)=e<sup>-at</sup>u(t)(a > 0), find and plot the magnitude and phase spectra.", year: "2072 Kartik", type: "Back", marks: "[1+2+6]" },
+                    { question: "Find the Fourier series representation of the half-wave rectified Sine wave.", year: "2071 Chaitra", type: "Regular", marks: "[4]" },
+                    { question: "Find the Fourier transform of the signal x(t) = e<sup>-a|t|</sup>, where (0 < a < ∞) is real-valued and |t| denotes the absolute value of (t). Define the terms linear time-invariant (LTI) systems and impulse response.", year: "2071 Chaitra", type: "Regular", marks: "[4+2]" }
+                ]
+            },
+            chapter4: {
+                title: "Chapter 4: Transmission Media",
+                questions: [
+                    { question: "What are the different propagation methods of radio waves? Explain. What are the implications of the Shannon channel capacity theorem? Derive the expression for maximum channel capacity when the bandwidth of the channel is infinite.", year: "2082 Baishakh", type: "Back", marks: "[3+2+3]" },
+                    { question: "a) Explain the different modes of data transmission in optical fiber. List out and mention the protocols of different categories of twisted pair cables.<br>b) A bandlimited signal with maximum frequency 4 KHz is sampled at the rate of Nyquist frequency. It is quantized into 128 levels and encoded. Calculate: Bandwidth of the channel required to transmit the data through a channel with SNR of 0 dB.", year: "2081 Bhadra", type: "Regular", marks: "[3+3]+[2]" },
+                    { question: "Write a short note on: Modes of operation of optical fiber.", year: "2080 Bhadra", type: "Regular", marks: "[5]" },
+                    { question: "Compare coaxial cable with optical fibre. Evaluate the maximum capacity of a channel through which a signal with power of 10 dBW is transmitted. (Assume that the noise power spectral density is given as 5 m W/Hz).", year: "2080 Baishakh", type: "Back", marks: "[4+4]" },
+                    { question: "State and explain theorem for noisy and noiseless channel. Briefly discuss about the measures that are used to characterize the performance of channel.", year: "2079 Bhadra", type: "Regular", marks: "[4+4]" },
+                    { question: "How Nyquist theorem applied for a noiseless channel? Calculate number of discrete signal content in the channel if a channel has a spectrum of 3 to 4 MHz with signal to noise ratio of 24 dB.", year: "2078 Kartik", type: "Back", marks: "[5+5]" },
+                    { question: "Write short notes on:<br>a) STP versus UTP<br>d) Multi mode optical fiber", year: "2076 Chaitra", type: "Regular", marks: "[4x2]" },
+                    { question: "Write a short note on: Optical fiber versus STP.", year: "2076 Ashwin", type: "Back", marks: "[4]" },
+                    { question: "State and explain Shannon-Hartley channel capacity theorem with example. Briefly discuss about the measures that are used to characterize the performance of a channel.", year: "2075 Ashwin", type: "Back", marks: "[4+4]" },
+                    { question: "a) What are the advantages of optical fibers over coaxial cable and twisted pair cable?", year: "2074 Ashwin", type: "Back", marks: "[3]" },
+                    { question: "Identify and discuss different data transmission channels. How synchronous transmission differs from asynchronous transmission?", year: "2073 Shrawan", type: "Back", marks: "[4+4]" },
+                    { question: "Define Throughput and Latency. Explain about different types of propagation.", year: "2072 Kartik", type: "Back", marks: "[3+5]" },
+                    { question: "Compare the transmission characteristics and performance (frequency range, bandwidth, security, flexibility, interference, connectivity) of Optical fiber cable and Satellite transmission.", year: "2071 Chaitra", type: "Regular", marks: "[6]" },
+                    { question: "Compare guided and unguided transmission media. Calculate the channel capacity having bandwidth and SNR of 6 kHz and 6 db respectively.", year: "2071 Shawan", type: "Back", marks: "[5+3]" }
+                ]
+            },
+            chapter8: {
+                title: "Chapter 8: Information Theory and Coding",
+                questions: [
+                    { question: "A generation matrix of C(6,3) linear block code is given as G = [100:110; 010:011; 010:111].<br>a) Find code word for message 110.<br>b) Decode the received sequence 110110.", year: "2082 Baishakh", type: "Back", marks: "[5]+[5]" },
+                    { question: "Encode 'Machho Machho Bhyaguto' using Huffmann Encoding and calculate its transmission efficiency. What would be the code sequence if the recipient has wrongly received the message like 'Machho Machho Machho'?", year: "2082 Baishakh", type: "Back", marks: "[4+2+4]" },
+                    { question: "Write short notes on: (Any Three)<br>b) Convolutional Encoding<br>c) CRC-3", year: "2082 Baishakh", type: "Back", marks: "[3x4]" },
+                    { question: "Prepare Code Tree, State Space and Trellis diagrams of 1/2 rate convolutional channel coding for a message bit of 1101; and demonstrate how Viterbi Decoding corrects a single bit error.", year: "2081 Bhadra", type: "Regular", marks: "[2+2+2+4]" },
+                    { question: "Encode 'SaReGaMaPaDhaNiSa' using Huffmann Encoding and calculate its transmission efficiency. What would be the code sequence if the recipient has wrongly received the message like 'SaReSaRePaDhaNiSa'?", year: "2081 Bhadra", type: "Regular", marks: "[4+2+4]" },
+                    { question: "Write short notes on: (Any Three)<br>c) CRC-4", year: "2081 Bhadra", type: "Regular", marks: "[3x4]" },
+                    { question: "Compress 'Ghumne Mech Mathi Andho Manche' using Huffman coding to determine efficiency redundancy and compare it with entropy.", year: "2081 Baishakh", type: "Back", marks: "[10]" },
+                    { question: "Explain CRC-4 generator and decoder with example for both no-error and with-error cases.", year: "2081 Baishakh", type: "Back", marks: "[8]" },
+                    { question: "With suitable example demonstrate how convolutional code corrects errors.", year: "2081 Baishakh", type: "Back", marks: "[6]" },
+                    { question: "Define Hamming distance and Minimum hamming distance with an example. What are the error detection and error correction capabilities of block codes? Explain.", year: "2080 Bhadra", type: "Regular", marks: "[2+4]" },
+                    { question: "Obtain all code words for a (6, 3) block code from the systematic generator matrix given below. G=[100:111; 010:110; 000:101]", year: "2080 Bhadra", type: "Regular", marks: "[8]" },
+                    { question: "Using a suitable example, explain state, tree and trellis diagrams for ½ code rate and 4 states.", year: "2080 Bhadra", type: "Regular", marks: "[10]" },
+                    { question: "a) Explain error detection and correction mechanism with trellis diagram.<br>b) Differentiate convolutional code and block code.", year: "2080 Baishakh", type: "Back", marks: "[10]+[2]" },
+                    { question: "a) Apply the Huffman coding procedure to determine Entropy, Average Code length, code efficiency and Redundancy for the following message ensemble [x] = [x1, x2, x3, x4, x5, x6] and [p] = [0.30, 0.25, 0.15, 0.12, 0.08, 0.10]. Take M=2<br>b) For a (6, 3) code, the generator matrix is G=[100101; 010011; 001110]. Find (i) All corresponding code vectors (ii) Minimum Hamming distance (iii) Verify that this code is a single error correcting code (iv) Parity check matrix (v) Determine transmitted codeword if received code is 100011.", year: "2079 Bhadra", type: "Regular", marks: "[8]+[8]" },
+                    { question: "Demonstrate how checksum is used to detect errors while sending a data word of 12, 15, 15, 10, 5, 2.", year: "2078 Bhadra", type: "Regular", marks: "[8]" },
+                    { question: "What are linear block codes? Design a code word of a C(8, 4) block code with any suitable generation matrix.", year: "2078 Bhadra", type: "Regular", marks: "[8]" },
+                    { question: "Encode 'Jasta lai tastai dhido lai nistai' using weighted Huffman encoder. Also demonstrate how it is decoded.", year: "2078 Bhadra", type: "Regular", marks: "[10]" },
+                    { question: "Describe with short notes on: (Any Two)<br>b) Hamming codes", year: "2078 Bhadra", type: "Regular", marks: "[2x4]" },
+                    { question: "Explain the operation of CRC-4 with example of error detection.", year: "2078 Kartik", type: "Back", marks: "[10]" },
+                    { question: "a) How is source coding different from channel coding?<br>b) Under what conditions does a linear code become a cyclic code? Explain with the help of an example.<br>c) Explain the concept of convolutional code with the help of a state-transition diagram.", year: "2078 Kartik", type: "Back", marks: "[2]+[3]+[5]" },
+                    { question: "Write down the Huffman Algorithm clearly and find an efficient code word and efficiency that can be assign to the symbols using Huffman Algorithm for 'Kun Mandir Ma Janchhau Yattri'.", year: "2078 Kartik", type: "Back", marks: "[10]" },
+                    { question: "Demonstrate how CRC-5 works to detect errors in data communication.", year: "2076 Chaitra", type: "Regular", marks: "[8]" },
+                    { question: "Construct a (7, 4) Hamming code using a 4×4 generation matrix for any arbritery message.", year: "2076 Chaitra", type: "Regular", marks: "[8]" },
+                    { question: "Encode 'Phool ko aankhama phoolai sansara' using Huffman encoder and find the transmission efficiency.", year: "2076 Chaitra", type: "Regular", marks: "[10]" },
+                    { question: "Explain with example how CRC-5 work to detect 3 burst errors.", year: "2076 Ashwin", type: "Back", marks: "[10]" },
+                    { question: "Design a suitable generation matrix for a convolution code using c(3,1,3) architecture and encode input data stream of (00110).", year: "2076 Ashwin", type: "Back", marks: "[10]" },
+                    { question: "Design a Binary Shannon-Fano code with a six symbol source with probability assignment as P(s1)=0.04, P(s2)=0.1, P(s3)=0.1, P(s4)=0.4, P(s5)=0.06, P(s6)=0.3. Test its transmission efficiency.", year: "2076 Ashwin", type: "Back", marks: "[7+3]" },
+                    { question: "Demonstrate how CRC-4 works to trace two burst errors.", year: "2075 Chaitra", type: "Regular / Back", marks: "[10]" },
+                    { question: "Define entropy in information theory. Find the efficient code word and efficiency using Hoffman algorithm using probabilities p(x1)=0.6, p(x2)=0.2, p(x3)=0.1, p(x4)=0.05, p(x5)=0.05.", year: "2075 Chaitra", type: "Regular / Back", marks: "[8]" },
+                    { question: "Explain why channel coding is required in data communication. Generate a convolution code for a input bit streams of (111011) using a c(3,1,3) architecture.", year: "2075 Chaitra", type: "Regular / Back", marks: "[2+10]" },
+                    { question: "What is CRC? Explain 3 bit CRC generator and decoder with example of no error case.", year: "2074 Chaitra", type: "Regular", marks: "[2+6]" },
+                    { question: "Write down the Huffman Algorithm clearly. Find an efficient code word and calculate efficiency that can be assign to the symbols using Huffman Algorithm using probabilities p(x1) = 0.5, p(x2) = 0.25, p(x3) = 0.125, p(x4) = 0.125.", year: "2074 Chaitra", type: "Regular", marks: "[4+4]" },
+                    { question: "Generate a CRC-3 transmission code and analyze its error detection performance with example.", year: "2074 Ashwin", type: "Back", marks: "[3+3]" },
+                    { question: "Consider a five symbol source with probability assignment as P(X1)=0.2, P(X2)=0.35 P(X3)=0.1, P(X4)=0.2, P(X5)=0.15. By using Huffman algorithm, find the source code for these symbols and determine efficiency of the code.", year: "2074 Ashwin", type: "Back", marks: "[10]" },
+                    { question: "Describe with short notes: (any two)<br>iii) Designing a codeword of a c(6,3) block code with any suitable generation matrix", year: "2074 Ashwin", type: "Back", marks: "[2x5]" },
+                    { question: "Where convolution codes are used? Describe a convolution codes with ½ rate.", year: "2073 Shrawan", type: "Back", marks: "[2+6]" },
+                    { question: "What do you mean by entropy? Describe linear block coding method with a suitable example for detection of an error.", year: "2073 Shrawan", type: "Back", marks: "[2+6]" },
+                    { question: "Explain the general working principle of Binary Huffman Coding Algorithm. Design a Binary Huffman code with a six symbol source with probability assignment as: P(s1)=0.04, P(s2)=0.1, P(s3)=0.1, P(s4)=0.4, P(s5)=0.06 and P(s6)=0.3.", year: "2073 Shrawan", type: "Back", marks: "[4+6]" },
+                    { question: "What are block codes? The generator matrix for a (6,3) block code is shown below. Obtain all code words. G=[100:111; 010:110; 001:101]", year: "2072 Chaitra", type: "Regular", marks: "[2+8]" },
+                    { question: "What are Hamming codes? Write the properties of Hamming codes. Visualize a 3-bit code words as code vector.", year: "2072 Chaitra", type: "Regular", marks: "[2+4+4]" },
+                    { question: "A message source generates 8 symbols with the following probabilities: P(X1)=1/2, P(X2)=1/4, P(X3)=1/8, P(X4)=1/16, P(X5)=1/32, P(X6)=1/64, P(X7)=1/128 and P(X8)=1/128. Encode the message using Huffman code.", year: "2072 Chaitra", type: "Regular", marks: "[6]" },
+                    { question: "Show the application of hamming distance with suitable example.", year: "2072 Kartik", type: "Back", marks: "[4]" },
+                    { question: "Write short notes on:<br>i) Linear block coding<br>ii) Huffman loading", year: "2072 Kartik", type: "Back", marks: "[3x2]" },
+                    { question: "Why is source coding necessary? Differentiate between fixed length codes and variable length codes. What is the purpose of Huffman's coding algorithm? Explain the general working principle of the Huffman coding algorithm.", year: "2071 Chaitra", type: "Regular", marks: "[1+1+1+3]" },
+                    { question: "Define Dataword and Codeword with suitable example. List the error detection and correction coding techniques with their application case.", year: "2071 Chaitra", type: "Regular", marks: "[2+4]" },
+                    { question: "Discuss the concept of redundancy in error detection and correction. Define Hamming distance? Differentiate between linear block codes and cyclic codes.", year: "2071 Chaitra", type: "Regular", marks: "[1+1+3]" },
+                    { question: "Define Information, Entropy and Minimum Hamming Distance with examples.", year: "2071 Shawan", type: "Back", marks: "[2+2+2]" },
+                    { question: "Define cyclic code. Explain the procedure for determining code vector for linear block code.", year: "2071 Shawan", type: "Back", marks: "[3+6]" }
+                ]
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const chapterSelect = document.getElementById('chapter-select');
+            const yearSelect = document.getElementById('year-select');
+
+            function setupChapterDropdown() {
+                Object.keys(allQuestions).forEach((chapterKey, index) => {
+                    const option = document.createElement('option');
+                    option.value = chapterKey;
+                    option.textContent = allQuestions[chapterKey].title;
+                    chapterSelect.appendChild(option);
+                });
+            }
+
+            function setupYearDropdown() {
+                const selectedChapter = chapterSelect.value;
+                const chapterQuestions = allQuestions[selectedChapter].questions;
+                
+                const years = ['All Years', ...new Set(chapterQuestions.map(q => {
+                    const match = q.year.match(/\d{4}/);
+                    return match ? match[0] : null;
+                }).filter(Boolean))].sort((a, b) => (a === 'All Years' ? -1 : b === 'All Years' ? 1 : b - a));
+                
+                yearSelect.innerHTML = '';
+                years.forEach(year => {
+                    const option = document.createElement('option');
+                    option.value = year;
+                    option.textContent = year;
+                    yearSelect.appendChild(option);
+                });
+            }
+
+            function renderQuestions() {
+                const selectedChapter = chapterSelect.value;
+                const selectedYear = yearSelect.value;
+                const container = document.getElementById('question-container');
+                const chapterData = allQuestions[selectedChapter];
+
+                if (!chapterData) {
+                    container.innerHTML = '<p class="text-center text-slate-500">Please select a chapter.</p>';
+                    return;
+                }
+
+                const filteredQuestions = chapterData.questions.filter(q => {
+                    return selectedYear === 'All Years' || q.year.includes(selectedYear);
+                });
+
+                container.innerHTML = '';
+
+                if (filteredQuestions.length === 0) {
+                    container.innerHTML = '<p class="text-center text-slate-500">No questions found for the selected year.</p>';
+                    return;
+                }
+
+                filteredQuestions.forEach((q, index) => {
+                    const isRegular = q.type.toLowerCase().includes('regular');
+                    const typeBgColor = isRegular ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800';
+                    
+                    const questionElement = document.createElement('div');
+                    questionElement.className = 'question-card bg-white rounded-lg shadow-md p-6 mb-6 border-l-4 ' + (isRegular ? 'border-emerald-500' : 'border-amber-500');
+                    
+                    questionElement.innerHTML = `
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-lg font-semibold text-slate-800">Question ${index + 1}</h3>
+                            <div class="text-right">
+                                <span class="text-sm font-semibold text-slate-700">${q.year}</span>
+                                <span class="ml-2 inline-block rounded-full px-3 py-1 text-xs font-semibold ${typeBgColor}">${q.type}</span>
+                            </div>
+                        </div>
+                        <div class="question-text text-slate-700 leading-relaxed mb-4">
+                            ${q.question}
+                        </div>
+                        <div class="text-right text-sm font-bold text-indigo-600">
+                            Marks: ${q.marks}
+                        </div>
+                    `;
+                    container.appendChild(questionElement);
+                });
+            }
+
+            chapterSelect.addEventListener('change', () => {
+                setupYearDropdown();
+                renderQuestions();
+            });
+
+            yearSelect.addEventListener('change', renderQuestions);
+
+            // Initial setup
+            setupChapterDropdown();
+            setupYearDropdown();
+            renderQuestions();
+        });
+    </script>
+
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
